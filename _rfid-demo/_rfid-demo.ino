@@ -26,6 +26,7 @@ MFRC522::MIFARE_Key key;
 void setup() {
   Serial.begin(9600);
   SPI.begin();
+  rfid.PCD_SetAntennaGain(rfid.RxGain_max);
   rfid.PCD_Init();
 //   rfid.PCD_AntennaOn();
 }
@@ -62,8 +63,10 @@ void loop() {
   // if tap the card, light is on.
   if (strID_HEX) {
     digitalWrite(A0, HIGH);
+      
   } else {
     digitalWrite(A0, LOW);
+    
   }
   
 
