@@ -7,6 +7,7 @@ void setup(){
 void loop(){
   delay(100);
   if(Serial.available()){
+    Serial.println("success");
     while(Serial.available()){
       if(Serial.read() == 'A'){
         Serial.println(!digitalRead(13));
@@ -14,5 +15,7 @@ void loop(){
         digitalWrite(13, !digitalRead(13));
       }
     }
+  }else {
+    Serial.println("failed");
   }
 }
